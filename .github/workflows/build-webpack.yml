@@ -39,5 +39,6 @@ jobs:
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
+          automatic_release_tag: ${{ env.npmlibraryName }}.${{ env.version }}
           title: ${{ env.npmlibraryName }}.${{ env.version }}.min.js
           files: "minimal-webpack-boilerplate/dist/${{ env.npmlibraryName }}.${{ env.version }}.min.js"

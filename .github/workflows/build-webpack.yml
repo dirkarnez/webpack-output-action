@@ -18,7 +18,7 @@ jobs:
         shell: cmd
         run: git clone https://github.com/dirkarnez/minimal-webpack-boilerplate.git
         
-      - name: curl x86_64-8.1.0-release-posix-seh-rt_v6-rev0.7z
+      - name: curl node-v18.12.1-win-x64.zip
         shell: cmd
         run: |
           curl https://nodejs.org/dist/v18.12.1/node-v18.12.1-win-x64.zip -L --output node-v18.12.1-win-x64.zip &&^

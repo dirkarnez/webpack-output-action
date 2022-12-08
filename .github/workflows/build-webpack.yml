@@ -7,7 +7,6 @@ jobs:
     runs-on: windows-latest
     env:
       npmlibraryName: standardized-audio-context
-      version: 25.3.36
       outputUMDName: standardizedAudioContext
     steps:
       - name: git clone
@@ -35,9 +34,9 @@ jobs:
             npm install ${{ env.npmlibraryName }} &&^
             npx webpack --mode=production --output-library-type=umd --output-library-name=${{ env.outputUMDName }} --output-filename=${{ env.npmlibraryName }}.${{ env.version }}.min.js
             
-      - name: Release prebuilt
-        uses: ncipollo/release-action@v1
+      - uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          artifacts: "minimal-webpack-boilerplate/dist/${{ env.npmlibraryName }}.${{ env.version }}.min.js"
-          allowUpdates: true
-          token: ${{ secrets.GITHUB_TOKEN }}
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          title: ${{ env.npmlibraryName }}.${{ env.version }}.min.js
+          files: "minimal-webpack-boilerplate/dist/${{ env.npmlibraryName }}.${{ env.version }}.min.js"

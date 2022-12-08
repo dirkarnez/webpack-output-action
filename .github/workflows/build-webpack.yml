@@ -7,6 +7,7 @@ jobs:
     runs-on: windows-latest
     env:
       npmlibraryName: standardized-audio-context
+      version: 25.3.36
       outputUMDName: standardizedAudioContext
     steps:
       - name: git clone

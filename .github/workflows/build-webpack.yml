@@ -28,7 +28,6 @@ jobs:
         shell: sh
         run: |
           cd minimal-webpack-boilerplate && \
-          mkdir src && \
           echo "export * from \"standardized-audio-context\";" > src/index.js
         
       - name: set PATH, check mingw version, cmake generate, build and install

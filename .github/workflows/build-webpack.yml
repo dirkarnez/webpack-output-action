@@ -6,9 +6,9 @@ jobs:
     name: Create Release
     runs-on: windows-latest
     env:
-      npmlibraryName: standardized-audio-context
-      version: 25.3.36
-      outputUMDName: standardizedAudioContext
+      npmlibraryName: '@octokit/core'
+      version: 2.0.10
+      outputUMDName: octokitCore
     steps:
       - name: git clone
         shell: cmd
@@ -24,7 +24,7 @@ jobs:
         shell: sh
         run: |
           cd minimal-webpack-boilerplate && \
-          echo "export * from \"standardized-audio-context\";" > src/index.js
+          echo "export * from \"@octokit/core\";" > src/index.js
         
       - name: set PATH, check mingw version, cmake generate, build and install
         shell: cmd

@@ -6,9 +6,9 @@ jobs:
     name: Create Release
     runs-on: windows-latest
     env:
-      npmlibraryName: '@octokit/core'
-      version: 2.0.10
-      outputUMDName: octokitCore
+      npmlibraryName: 'eventsource-parser'
+      version: 0.1.0
+      outputUMDName: eventsourceParser
     steps:
       - name: git clone
         shell: cmd
@@ -24,7 +24,7 @@ jobs:
         shell: sh
         run: |
           cd minimal-webpack-boilerplate && \
-          echo "export * from \"@octokit/core\";" > src/index.js
+          echo "export * from \"eventsource-parser\";" > src/index.js
         
       - name: set PATH, check mingw version, cmake generate, build and install
         shell: cmd

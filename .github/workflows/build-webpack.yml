@@ -10,6 +10,7 @@ jobs:
       version: 2.0.2
       outputUMDName: automerge
       appendToWebpackCli: '--experiments-async-web-assembly'
+      exportFileName: '@automerge_automerge'
     steps:
       - name: git clone
         shell: cmd
@@ -42,6 +43,4 @@ jobs:
           prerelease: false
           automatic_release_tag: ${{ env.npmlibraryName }}.${{ env.version }}
           title: ${{ env.npmlibraryName }}.${{ env.version }}.min.js
-          files: |
-            "minimal-webpack-boilerplate/dist/${{ env.npmlibraryName }}.${{ env.version }}.min.js"
-            "minimal-webpack-boilerplate/dist/*.wasm"
+          files: "minimal-webpack-boilerplate/dist/${{ env.exportFileName }}.${{ env.version }}.min.js,minimal-webpack-boilerplate/dist/*.wasm"

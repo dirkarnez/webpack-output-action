@@ -25,7 +25,7 @@ jobs:
         shell: sh
         run: |
           cd minimal-webpack-boilerplate && \
-          echo "export * from \"eventsource-parser\";" > src/index.js
+          echo "export * from \"${{ env.npmlibraryName }}\";" > src/index.js
         
       - name: set PATH, check mingw version, cmake generate, build and install
         shell: cmd

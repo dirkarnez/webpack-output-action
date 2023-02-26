@@ -6,11 +6,11 @@ jobs:
     name: Create Release
     runs-on: windows-latest
     env:
-      npmlibraryName: '@automerge/automerge'
-      version: 2.0.2
-      outputUMDName: automerge
-      appendToWebpackCli: '--experiments-async-web-assembly'
-      exportFileName: '@automerge_automerge'
+      npmlibraryName: 'eventsource-parser'
+      version: 0.1.0
+      outputUMDName: eventsourceParser
+      appendToWebpackCli: ''
+      exportFileName: 'eventsource-parser'
     steps:
       - name: git clone
         shell: cmd

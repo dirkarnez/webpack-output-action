@@ -35,7 +35,7 @@ jobs:
             ${{ github.workspace }}\node-v18.12.1-win-x64;
             cd minimal-webpack-boilerplate &&^
             npm install ${{ env.npmlibraryName }} &&^
-            npx webpack --mode=production ${{ env.appendToWebpackCli }} --output-library-type=umd --output-library-name=${{ env.outputUMDName }} --output-filename=${{ env.npmlibraryName }}.${{ env.version }}.min.js
+            npx webpack --mode=production ${{ env.appendToWebpackCli }} --output-library-type=umd --output-library-name=${{ env.outputUMDName }} --output-filename=${{ env.exportFileName }}.${{ env.version }}.min.js
             
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
@@ -43,4 +43,6 @@ jobs:
           prerelease: false
           automatic_release_tag: ${{ env.npmlibraryName }}.${{ env.version }}
           title: ${{ env.npmlibraryName }}.${{ env.version }}.min.js
-          files: "minimal-webpack-boilerplate/dist/${{ env.exportFileName }}.${{ env.version }}.min.js,minimal-webpack-boilerplate/dist/*.wasm"
+          files: |
+            minimal-webpack-boilerplate/dist/${{ env.exportFileName }}.${{ env.version }}.min.js
+            minimal-webpack-boilerplate/dist/*.wasm

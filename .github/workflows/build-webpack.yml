@@ -9,6 +9,7 @@ jobs:
       npmlibraryName: 'eventsource-parser'
       version: 0.1.0
       outputUMDName: eventsourceParser
+      appendToWebpackCli: '--experiments-async-web-assembly'
     steps:
       - name: git clone
         shell: cmd
@@ -33,7 +34,7 @@ jobs:
             ${{ github.workspace }}\node-v18.12.1-win-x64;
             cd minimal-webpack-boilerplate &&^
             npm install ${{ env.npmlibraryName }} &&^
-            npx webpack --mode=production --output-library-type=umd --output-library-name=${{ env.outputUMDName }} --output-filename=${{ env.npmlibraryName }}.${{ env.version }}.min.js
+            npx webpack --mode=production ${{ env.appendToWebpackCli }} --output-library-type=umd --output-library-name=${{ env.outputUMDName }} --output-filename=${{ env.npmlibraryName }}.${{ env.version }}.min.js
             
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:

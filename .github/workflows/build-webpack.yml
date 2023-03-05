@@ -6,11 +6,11 @@ jobs:
     name: Create Release
     runs-on: windows-latest
     env:
-      npmlibraryName: 'eventsource-parser'
+      npmlibraryName: 'audiobuffer-to-wav'
       version: 0.1.0
-      outputUMDName: eventsourceParser
+      outputUMDName: audiobufferToWav
       appendToWebpackCli: ''
-      exportFileName: 'eventsource-parser'
+      exportFileName: 'audiobuffer-to-wav'
     steps:
       - name: git clone
         shell: cmd
@@ -45,4 +45,4 @@ jobs:
           title: ${{ env.npmlibraryName }}.${{ env.version }}.min.js
           files: |
             minimal-webpack-boilerplate/dist/${{ env.exportFileName }}.${{ env.version }}.min.js
-            minimal-webpack-boilerplate/dist/*.wasm
+            # minimal-webpack-boilerplate/dist/*.wasm

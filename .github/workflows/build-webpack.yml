@@ -6,11 +6,11 @@ jobs:
     name: Create Release
     runs-on: windows-latest
     env:
-      npmlibraryName: quill-delta-to-markdown
-      version: 0.6.0
-      outputUMDName: quillDeltaToMarkdown
+      npmlibraryName: quilljs-renderer
+      version: 0.0.8
+      outputUMDName: quilljsRenderer
       appendToWebpackCli: ''
-      exportFileName: quill-delta-to-markdown
+      exportFileName: quilljs-renderer
     steps:
       - name: git clone
         shell: cmd
@@ -45,4 +45,6 @@ jobs:
           title: ${{ env.npmlibraryName }}.${{ env.version }}.min.js
           files: |
             minimal-webpack-boilerplate/dist/${{ env.exportFileName }}.${{ env.version }}.min.js
-            # minimal-webpack-boilerplate/dist/*.wasm
+            
+            
+# minimal-webpack-boilerplate/dist/*.wasm

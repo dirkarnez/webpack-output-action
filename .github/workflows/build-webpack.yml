@@ -6,11 +6,11 @@ jobs:
     name: Create Release
     runs-on: windows-latest
     env:
-      npmlibraryName: quill-delta-to-html
-      version: 0.12.1
-      outputUMDName: quillDeltaToHtml
+      npmlibraryName: "@octokit/core"
+      version: 4.2.1
+      outputUMDName: octokitCore
       appendToWebpackCli: ''
-      exportFileName: quill-delta-to-html
+      exportFileName: octokit-core
     steps:
       - name: git clone
         shell: cmd

@@ -1,4 +1,4 @@
-webpack-umd-action
+webpack-var-action
 ==================
 ### Notes
 - DO NOT use release assets URL as CDN

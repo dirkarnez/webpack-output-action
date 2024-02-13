@@ -1,5 +1,8 @@
 webpack-umd-action
 ==================
+### Notes
+- DO NOT use release assets URL as CDN
+
 ### Used by
 - [dirkarnez/web-audio-playground](https://github.com/dirkarnez/web-audio-playground)
 

@@ -6,11 +6,11 @@ jobs:
     name: Create Release
     runs-on: windows-latest
     env:
-      npmlibraryName: "image-js"
-      version: 0.35.5
-      outputUMDName: imagejs
+      npmlibraryName: "@zip.js/zip.js"
+      version: 2.7.35
+      outputUMDName: zipjs
       appendToWebpackCli: ''
-      exportFileName: image-js
+      exportFileName: zip-js
     steps:
       - name: git clone
         shell: cmd

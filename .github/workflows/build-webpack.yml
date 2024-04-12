@@ -6,11 +6,11 @@ jobs:
     name: Create Release
     runs-on: windows-latest
     env:
-      npmlibraryName: "@zip.js/zip.js"
-      version: 2.7.35
-      outputUMDName: zipjs
+      npmlibraryName: "signal-polyfill"
+      version: 0.1.0
+      outputUMDName: signal
       appendToWebpackCli: ''
-      exportFileName: zip-js
+      exportFileName: signal
     steps:
       - name: git clone
         shell: cmd

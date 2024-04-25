@@ -6,11 +6,11 @@ jobs:
     name: Create Release
     runs-on: windows-latest
     env:
-      npmlibraryName: "signal-polyfill"
-      version: 0.1.0
-      outputUMDName: signal
+      npmlibraryName: "bitecs"
+      version: 0.3.40
+      outputUMDName: bitecs
       appendToWebpackCli: ''
-      exportFileName: signal
+      exportFileName: bitecs
     steps:
       - name: git clone
         shell: cmd

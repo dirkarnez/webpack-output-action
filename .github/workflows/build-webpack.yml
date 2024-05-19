@@ -22,17 +22,17 @@ jobs:
           curl https://nodejs.org/dist/v18.12.1/node-v18.12.1-win-x64.zip -L --output node-v18.12.1-win-x64.zip &&^
           7z.exe x node-v18.12.1-win-x64.zip
         
-      # - name: write dummy index.js
-      #   shell: sh
-      #   run: |
-      #     cd minimal-webpack-boilerplate && \
-      #     echo "export * from \"${{ env.npmlibraryName }}\";" > src/index.js
-      
-      - name: write dummy index.js, advanced
+      - name: write dummy index.js
         shell: sh
         run: |
           cd minimal-webpack-boilerplate && \
-          echo "export * as pdfMake from \"${{ env.npmlibraryName }}/build/pdfmake\";export * as pdfFonts from \"${{ env.npmlibraryName }}/build/vfs_fonts\";" > src/index.js
+          echo "export * from \"${{ env.npmlibraryName }}\";" > src/index.js
+      
+      # - name: write dummy index.js, advanced DO NOT REMOVE
+      #   shell: sh
+      #   run: |
+      #     cd minimal-webpack-boilerplate && \
+      #     echo "export * as pdfMake from \"${{ env.npmlibraryName }}/build/pdfmake\";export * as pdfFonts from \"${{ env.npmlibraryName }}/build/vfs_fonts\";" > src/index.js
           
       - name: set PATH, check mingw version, cmake generate, build and install
         shell: cmd

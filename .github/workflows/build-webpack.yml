@@ -6,11 +6,11 @@ jobs:
     name: Create Release
     runs-on: windows-latest
     env:
-      npmlibraryName: "better-cue-parser"
-      version: 0.3.1
-      outputVarName: betterCueParser
+      npmlibraryName: "pdfmake"
+      version: 0.2.10
+      outputVarName: pdfmake
       appendToWebpackCli: ''
-      exportFileName: better-cue-parser
+      exportFileName: pdfmake
     steps:
       - name: git clone
         shell: cmd

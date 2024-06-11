@@ -6,11 +6,11 @@ jobs:
     name: Create Release
     runs-on: windows-latest
     env:
-      npmlibraryName: "pdfmake"
-      version: 0.2.10
-      outputVarName: pdfmake
+      npmlibraryName: "typeorm"
+      version: 0.3.20
+      outputVarName: typeorm
       appendToWebpackCli: ''
-      exportFileName: pdfmake
+      exportFileName: typeorm
     steps:
       - name: git clone
         shell: cmd

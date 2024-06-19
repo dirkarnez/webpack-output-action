@@ -8,7 +8,7 @@ jobs:
     env:
       npmlibraryName: "query-string"
       version: 9.0.0
-      outputVarName: query-string
+      outputVarName: queryString
       appendToWebpackCli: ''
       exportFileName: query-string
     steps:

@@ -6,11 +6,11 @@ jobs:
     name: Create Release
     runs-on: windows-latest
     env:
-      npmlibraryName: "query-string"
-      version: 9.0.0
-      outputVarName: queryString
+      npmlibraryName: "three-csg-ts"
+      version: 3.2.0
+      outputVarName: threeCSGTypeScript
       appendToWebpackCli: ''
-      exportFileName: query-string
+      exportFileName: three-csg-ts
     steps:
       - name: git clone
         shell: cmd

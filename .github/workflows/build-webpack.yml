@@ -43,7 +43,7 @@ jobs:
             ${{ github.workspace }}\node-v18.12.1-win-x64;
             cd minimal-webpack-boilerplate &&^
             npm install ${{ env.npmlibraryName }} &&^
-            npx webpack --mode=production ${{ env.appendToWebpackCli }} --experiments-output-module=true --output-library-type=module --output-filename=${{ env.exportFileName }}.${{ env.version }}.min.js
+            npx webpack --mode=production ${{ env.appendToWebpackCli }} --experiments-output-module --output-library-type=module --output-filename=${{ env.exportFileName }}.${{ env.version }}.min.js
             
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:

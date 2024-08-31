@@ -7,7 +7,7 @@ jobs:
     runs-on: windows-latest
     env:
       npmlibraryName: troika-three-text
-      version: 0.45.0
+      version: 0.45.1
       # outputVarName: threeCSGTypeScript
       appendToWebpackCli: ''
       exportFileName: troika-three-text
@@ -34,7 +34,7 @@ jobs:
       #     cd minimal-webpack-boilerplate && \
       #     echo "export * as pdfMake from \"${{ env.npmlibraryName }}/build/pdfmake\";export * as pdfFonts from \"${{ env.npmlibraryName }}/build/vfs_fonts\";" > src/index.js
 
-      #  --output-library-type=module
+      #  --output-library-type=module --experiments-output-module
       #  --output-library-type=var  --output-library-name=${{ env.outputVarName }}
       - name: set PATH, check mingw version, cmake generate, build and install
         shell: cmd

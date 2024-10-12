@@ -6,11 +6,11 @@ jobs:
     name: Create Release
     runs-on: windows-latest
     env:
-      npmlibraryName: troika-three-text
-      version: 0.45.1
+      npmlibraryName: pdfkit
+      version: 0.15.0
       # outputVarName: threeCSGTypeScript
       appendToWebpackCli: ''
-      exportFileName: troika-three-text
+      exportFileName: pdfkit
     steps:
       - name: git clone
         shell: cmd

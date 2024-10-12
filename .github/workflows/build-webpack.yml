@@ -6,11 +6,11 @@ jobs:
     name: Create Release
     runs-on: windows-latest
     env:
-      npmlibraryName: pdfkit
-      version: 0.15.0
-      # outputVarName: threeCSGTypeScript
+      npmlibraryName: phaser
+      version: 3.86.0
+      outputVarName: phaser
       appendToWebpackCli: ''
-      exportFileName: pdfkit
+      exportFileName: phaser
     steps:
       - name: git clone
         shell: cmd
@@ -33,7 +33,7 @@ jobs:
       #   run: |
       #     cd minimal-webpack-boilerplate && \
       #     echo "export * as pdfMake from \"${{ env.npmlibraryName }}/build/pdfmake\";export * as pdfFonts from \"${{ env.npmlibraryName }}/build/vfs_fonts\";" > src/index.js
-
+      
       #  --output-library-type=module --experiments-output-module
       #  --output-library-type=var  --output-library-name=${{ env.outputVarName }}
       - name: set PATH, check mingw version, cmake generate, build and install
@@ -43,7 +43,7 @@ jobs:
             ${{ github.workspace }}\node-v18.12.1-win-x64;
             cd minimal-webpack-boilerplate &&^
             npm install ${{ env.npmlibraryName }} &&^
-            npx webpack --mode=production ${{ env.appendToWebpackCli }} --experiments-output-module --output-library-type=module --output-filename=${{ env.exportFileName }}.${{ env.version }}.min.js
+            npx webpack --mode=production ${{ env.appendToWebpackCli }} --output-library-type=var --output-library-name=${{ env.outputVarName }} --output-filename=${{ env.exportFileName }}.${{ env.version }}.min.js
             
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:

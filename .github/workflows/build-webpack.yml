@@ -53,6 +53,7 @@ jobs:
             ${{ github.workspace }}\node-v18.12.1-win-x64;
             cd minimal-webpack-boilerplate &&^
             npm install ${{ env.npmlibraryName }} &&^
+            npm i path-browserify &&^
             npx webpack --help=verbose &&^
             npx webpack --config webpack.config.js --mode=production ${{ env.appendToWebpackCli }} --output-library-type=var --output-library-name=${{ env.npmlibraryName }} --output-filename=${{ env.exportFileName }}.${{ env.version }}.var.min.js
 
@@ -63,6 +64,7 @@ jobs:
             ${{ github.workspace }}\node-v18.12.1-win-x64;
             cd minimal-webpack-boilerplate &&^
             npm install ${{ env.npmlibraryName }} &&^
+            npm i path-browserify &&^
             npx webpack --help=verbose &&^
             npx webpack --config webpack.config.js --mode=production ${{ env.appendToWebpackCli }} --output-library-type=module --experiments-output-module --output-filename=${{ env.exportFileName }}.${{ env.version }}.esm.min.js
 

@@ -43,7 +43,8 @@ jobs:
             ${{ github.workspace }}\node-v18.12.1-win-x64;
             cd minimal-webpack-boilerplate &&^
             npm install ${{ env.npmlibraryName }} &&^
-            npx webpack --mode=production ${{ env.appendToWebpackCli }} --output-library-type=var --output-library-name=${{ env.npmlibraryName }} --output-filename=${{ env.exportFileName }}.${{ env.version }}.var.min.js
+            npm i path-browserify &&^
+            npx webpack --mode=production ${{ env.appendToWebpackCli }} --resolve-fallback-path="require.resolve('path-browserify')" --output-library-type=var --output-library-name=${{ env.npmlibraryName }} --output-filename=${{ env.exportFileName }}.${{ env.version }}.var.min.js
 
       - if: ${{ matrix.type == 'esm' }}
         shell: cmd
@@ -52,7 +53,8 @@ jobs:
             ${{ github.workspace }}\node-v18.12.1-win-x64;
             cd minimal-webpack-boilerplate &&^
             npm install ${{ env.npmlibraryName }} &&^
-            npx webpack --mode=production ${{ env.appendToWebpackCli }} --output-library-type=module --experiments-output-module --output-filename=${{ env.exportFileName }}.${{ env.version }}.esm.min.js
+            npm i path-browserify &&^
+            npx webpack --mode=production ${{ env.appendToWebpackCli }} --resolve-fallback-path="require.resolve('path-browserify')" --output-library-type=module --experiments-output-module --output-filename=${{ env.exportFileName }}.${{ env.version }}.esm.min.js
 
             
       - uses: "marvinpinto/action-automatic-releases@latest"

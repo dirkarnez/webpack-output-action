@@ -5,12 +5,14 @@ jobs:
   build:
     name: Create Release
     runs-on: windows-latest
+    strategy:
+      matrix:
+        type: [var, esm]
     env:
-      npmlibraryName: phaser
-      version: 3.86.0
-      outputVarName: phaser
+      npmlibraryName: mathjax
+      version: 3.2.2
       appendToWebpackCli: ''
-      exportFileName: phaser
+      exportFileName: mathjax
     steps:
       - name: git clone
         shell: cmd
@@ -34,23 +36,31 @@ jobs:
       #     cd minimal-webpack-boilerplate && \
       #     echo "export * as pdfMake from \"${{ env.npmlibraryName }}/build/pdfmake\";export * as pdfFonts from \"${{ env.npmlibraryName }}/build/vfs_fonts\";" > src/index.js
       
-      #  --output-library-type=module --experiments-output-module
-      #  --output-library-type=var  --output-library-name=${{ env.outputVarName }}
-      - name: set PATH, check mingw version, cmake generate, build and install
+      - if: ${{ matrix.type == 'var' }}
         shell: cmd
         run: |
             set PATH=^
             ${{ github.workspace }}\node-v18.12.1-win-x64;
             cd minimal-webpack-boilerplate &&^
             npm install ${{ env.npmlibraryName }} &&^
-            npx webpack --mode=production ${{ env.appendToWebpackCli }} --output-library-type=var --output-library-name=${{ env.outputVarName }} --output-filename=${{ env.exportFileName }}.${{ env.version }}.min.js
+            npx webpack --mode=production ${{ env.appendToWebpackCli }} --output-library-type=var --output-library-name=${{ env.npmlibraryName }} --output-filename=${{ env.exportFileName }}.${{ env.version }}.var.min.js
+
+      - if: ${{ matrix.type == 'esm' }}
+        shell: cmd
+        run: |
+            set PATH=^
+            ${{ github.workspace }}\node-v18.12.1-win-x64;
+            cd minimal-webpack-boilerplate &&^
+            npm install ${{ env.npmlibraryName }} &&^
+            npx webpack --mode=production ${{ env.appendToWebpackCli }} --output-library-type=module --experiments-output-module --output-filename=${{ env.exportFileName }}.${{ env.version }}.esm.min.js
+
             
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
-          automatic_release_tag: ${{ env.npmlibraryName }}.${{ env.version }}
-          title: ${{ env.npmlibraryName }}.${{ env.version }}.min.js
+          automatic_release_tag: ${{ env.npmlibraryName }}.${{ env.version }}.${{ matrix.type }}
+          title: ${{ env.npmlibraryName }}.${{ env.version }}.${{ matrix.type }}.min.js
           files: |
-            minimal-webpack-boilerplate/dist/${{ env.exportFileName }}.${{ env.version }}.min.js
+            minimal-webpack-boilerplate/dist/*.js
             minimal-webpack-boilerplate/dist/*.wasm

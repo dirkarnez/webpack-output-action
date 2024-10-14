@@ -32,12 +32,12 @@ jobs:
           cd minimal-webpack-boilerplate && \
           echo "export * from \"${{ env.npmlibraryName }}\";" > src/index.js
 
-      - name: dummy webopack 5 config
-        shell: cmd
-        run: |
-          move webpack.config.js "minimal-webpack-boilerplate" &&^
-          cd minimal-webpack-boilerplate &&^
-          dir
+      # - name: dummy webpack 5 config
+      #   shell: cmd
+      #   run: |
+      #     move webpack.config.js "minimal-webpack-boilerplate" &&^
+      #     cd minimal-webpack-boilerplate &&^
+      #     dir
           
       
       # - name: write dummy index.js, advanced DO NOT REMOVE
@@ -55,7 +55,7 @@ jobs:
             npm install ${{ env.npmlibraryName }} &&^
             npm i path-browserify &&^
             npx webpack --help=verbose &&^
-            npx webpack --config webpack.config.js --mode=production ${{ env.appendToWebpackCli }} --output-library-type=var --output-library-name=${{ env.npmlibraryName }} --output-filename=${{ env.exportFileName }}.${{ env.version }}.var.min.js
+            npx webpack --resolve-fallback-name path:require.resolve('path-browserify') --mode=production ${{ env.appendToWebpackCli }} --output-library-type=var --output-library-name=${{ env.npmlibraryName }} --output-filename=${{ env.exportFileName }}.${{ env.version }}.var.min.js
 
       - if: ${{ matrix.type == 'esm' }}
         shell: cmd
@@ -66,7 +66,7 @@ jobs:
             npm install ${{ env.npmlibraryName }} &&^
             npm i path-browserify &&^
             npx webpack --help=verbose &&^
-            npx webpack --config webpack.config.js --mode=production ${{ env.appendToWebpackCli }} --output-library-type=module --experiments-output-module --output-filename=${{ env.exportFileName }}.${{ env.version }}.esm.min.js
+            npx webpack --resolve-fallback-name path:require.resolve('path-browserify') --mode=production ${{ env.appendToWebpackCli }} --output-library-type=module --experiments-output-module --output-filename=${{ env.exportFileName }}.${{ env.version }}.esm.min.js
 
             
       - uses: "marvinpinto/action-automatic-releases@latest"

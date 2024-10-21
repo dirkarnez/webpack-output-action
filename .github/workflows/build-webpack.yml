@@ -9,10 +9,10 @@ jobs:
       matrix:
         type: [var, esm]
     env:
-      npmlibraryName: mathjax
-      version: 3.2.2
+      npmlibraryName: nouislider
+      version: 15.8.1
       appendToWebpackCli: ''
-      exportFileName: mathjax
+      exportFileName: nouislider
     steps:
       - uses: actions/checkout@v4
       
@@ -45,7 +45,7 @@ jobs:
       #   run: |
       #     cd minimal-webpack-boilerplate && \
       #     echo "export * as pdfMake from \"${{ env.npmlibraryName }}/build/pdfmake\";export * as pdfFonts from \"${{ env.npmlibraryName }}/build/vfs_fonts\";" > src/index.js
-      
+      # --resolve-fallback-alias path --resolve-fallback-name require.resolve('path-browserify')
       - if: ${{ matrix.type == 'var' }}
         shell: cmd
         run: |
@@ -55,7 +55,7 @@ jobs:
             npm install ${{ env.npmlibraryName }} &&^
             npm i path-browserify &&^
             npx webpack --help=verbose &&^
-            npx webpack --resolve-fallback-alias path --resolve-fallback-name require.resolve('path-browserify') --mode=production ${{ env.appendToWebpackCli }} --output-library-type=var --output-library-name=${{ env.npmlibraryName }} --output-filename=${{ env.exportFileName }}.${{ env.version }}.var.min.js
+            npx webpack --mode=production ${{ env.appendToWebpackCli }} --output-library-type=var --output-library-name=${{ env.npmlibraryName }} --output-filename=${{ env.exportFileName }}.${{ env.version }}.var.min.js
 
       - if: ${{ matrix.type == 'esm' }}
         shell: cmd
@@ -66,7 +66,7 @@ jobs:
             npm install ${{ env.npmlibraryName }} &&^
             npm i path-browserify &&^
             npx webpack --help=verbose &&^
-            npx webpack --resolve-fallback-alias path --resolve-fallback-name require.resolve('path-browserify') --mode=production ${{ env.appendToWebpackCli }} --output-library-type=module --experiments-output-module --output-filename=${{ env.exportFileName }}.${{ env.version }}.esm.min.js
+            npx webpack --mode=production ${{ env.appendToWebpackCli }} --output-library-type=module --experiments-output-module --output-filename=${{ env.exportFileName }}.${{ env.version }}.esm.min.js
 
             
       - uses: "marvinpinto/action-automatic-releases@latest"

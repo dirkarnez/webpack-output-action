@@ -9,10 +9,10 @@ jobs:
       matrix:
         type: [var, esm]
     env:
-      npmlibraryName: nouislider
-      version: 15.8.1
+      npmlibraryName:  three-ammo
+      version: 1.0.12
       appendToWebpackCli: ''
-      exportFileName: nouislider
+      exportFileName:  three-ammo
     steps:
       - uses: actions/checkout@v4
       

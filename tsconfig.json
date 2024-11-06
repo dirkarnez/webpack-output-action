@@ -1,0 +1,12 @@
+{
+    "include": ["src/**/*"],
+    "exclude": ["node_modules/*", "public/*"],
+    "compilerOptions": {
+      "noImplicitAny": true,
+      "allowSyntheticDefaultImports": true,
+      "module": "ES6",
+      "target": "ES5",
+      "allowJs": false,
+      "moduleResolution": "node"
+    }
+}

@@ -1,0 +1,72 @@
+name: webpack-umd-release-actions-workflow
+# on: push
+
+jobs:
+  build:
+    name: Create Release
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        type: [var, esm]
+    env:
+      npmlibraryName:  pdfkit-table
+      version: 0.1.99
+      appendToWebpackCli: ''
+      exportFileName:  pdfkit-table
+    steps:
+      - uses: actions/checkout@v4
+      
+      # - name: git clone
+      #   shell: cmd
+      #   run: git clone https://github.com/dirkarnez/minimal-webpack-boilerplate.git
+        
+      - name: curl node-v18.12.1-win-x64.zip
+        shell: cmd
+        run: |
+          curl https://nodejs.org/dist/v18.12.1/node-v18.12.1-win-x64.zip -L --output node-v18.12.1-win-x64.zip &&^
+          7z.exe x node-v18.12.1-win-x64.zip
+        
+      - name: write dummy index.js
+        shell: sh
+        run: |
+          echo "export * from \"${{ env.npmlibraryName }}\";" > src/index.js
+      
+      # - name: write dummy index.js, advanced DO NOT REMOVE
+      #   shell: sh
+      #   run: |
+      #     cd minimal-webpack-boilerplate && \
+      #     echo "export * as pdfMake from \"${{ env.npmlibraryName }}/build/pdfmake\";export * as pdfFonts from \"${{ env.npmlibraryName }}/build/vfs_fonts\";" > src/index.js
+      # --resolve-fallback-alias path --resolve-fallback-name require.resolve('path-browserify')
+
+      - if: ${{ matrix.type == 'var' }}
+        shell: cmd
+        run: |
+            set PATH=^
+            ${{ github.workspace }}\node-v18.12.1-win-x64;
+            cd minimal-webpack-boilerplate &&^
+            npm install ${{ env.npmlibraryName }} &&^
+            npm i path-browserify &&^
+            npx webpack --help=verbose &&^
+            npx webpack --mode=production ${{ env.appendToWebpackCli }} --output-library-type=var --output-library-name=${{ env.npmlibraryName }} --output-filename=${{ env.exportFileName }}.${{ env.version }}.var.min.js
+
+      - if: ${{ matrix.type == 'esm' }}
+        shell: cmd
+        run: |
+            set PATH=^
+            ${{ github.workspace }}\node-v18.12.1-win-x64;
+            cd minimal-webpack-boilerplate &&^
+            npm install ${{ env.npmlibraryName }} &&^
+            npm i path-browserify &&^
+            npx webpack --help=verbose &&^
+            npx webpack --mode=production ${{ env.appendToWebpackCli }} --output-library-type=module --experiments-output-module --output-filename=${{ env.exportFileName }}.${{ env.version }}.esm.min.js
+
+            
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          automatic_release_tag: ${{ env.npmlibraryName }}.${{ env.version }}.${{ matrix.type }}
+          title: ${{ env.npmlibraryName }}.${{ env.version }}.${{ matrix.type }}.min.js
+          files: |
+            minimal-webpack-boilerplate/dist/*.js
+            minimal-webpack-boilerplate/dist/*.wasm

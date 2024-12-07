@@ -50,7 +50,7 @@ jobs:
         run: |
             set PATH=^
             ${{ github.workspace }}\node-v18.12.1-win-x64;^
-            ${{ github.workspace }}\PortableGit-2.38.1-64-bit;
+            ${{ github.workspace }}\PortableGit-2.38.1-64-bit\bin;
             cd minimal-webpack-boilerplate &&^
             npm install ${{ env.npmlibraryName }} &&^
             npx webpack --help=verbose &&^
@@ -61,7 +61,7 @@ jobs:
         run: |
             set PATH=^
             ${{ github.workspace }}\node-v18.12.1-win-x64;^
-            ${{ github.workspace }}\PortableGit-2.38.1-64-bit;
+            ${{ github.workspace }}\PortableGit-2.38.1-64-bit\bin;
             cd minimal-webpack-boilerplate &&^
             npm install ${{ env.npmlibraryName }} &&^
             npx webpack --help=verbose &&^

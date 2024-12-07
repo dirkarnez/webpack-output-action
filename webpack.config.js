@@ -16,11 +16,10 @@ const DEV_PORT = 5678;
 // const mode = process.env.NODE_ENV || "development";
 // const prod = mode === "production";
 
-console.log("!!!!!!!!!!!!!!!");
-
 const publicPath = "/";
 
 const isProduction = process.env.NODE_ENV === 'production';
+console.log(`isProduction ? ${isProduction}`)
 // const shouldUseSourceMap = !isProduction;
 
 // const postCssLoaderConfig = {
@@ -67,16 +66,15 @@ module.exports = {
 	experiments: {
 		outputModule: true,
 	},
-	output: {
-		path: __dirname + "/dist",
-		library: {
-			type: 'module',
-		},
-		filename: "[name].[contenthash].js",
-		// chunkFilename: "[name].[contenthash].js",
-		publicPath
-	},
-
+	// output: {
+	// 	path: __dirname + "/dist",
+	// 	library: {
+	// 		type: 'module',
+	// 	},
+	// 	filename: "[name].[contenthash].js",
+	// 	// chunkFilename: "[name].[contenthash].js",
+	// 	publicPath
+	// },
 	module: {
 		rules: [
 			{

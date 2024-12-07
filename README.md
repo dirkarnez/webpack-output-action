@@ -14,3 +14,20 @@ webpack-output-action
   - https://www.webpackjs.com/configuration/output/#outputlibrarytype
 - [ ] esm to umd support?
   - [Unable to import webpack-bundled UMD library as an ES6 import · Issue #9232 · webpack/webpack](https://github.com/webpack/webpack/issues/9232)
+
+
+    npx cross-env NODE_ENV=production ${{ env.appendToWebpackCli }} --output-library-type=var --output-library-name=${{ env.npmlibraryName }} --output-filename=${{ env.exportFileName }}.${{ env.version }}.var.min.js
+
+
+
+     npx cross-env NODE_ENV=production webpack --output-library-type=var --output-library-name=123 --output-filename=123.var.min.js
+
+
+	output: {
+		library: {
+			type: 'module',
+		},
+		filename: "[name].[contenthash].js",
+		// chunkFilename: "[name].[contenthash].js",
+		publicPath
+	},

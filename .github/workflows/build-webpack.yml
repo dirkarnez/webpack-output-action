@@ -14,13 +14,11 @@ jobs:
       appendToWebpackCli: ''
       exportFileName:  printpdf
     steps:
-      # - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      
-      
-      - name: git clone
-        shell: cmd
-        run: git clone https://github.com/dirkarnez/minimal-webpack-boilerplate.git
+      # - name: git clone
+      #   shell: cmd
+      #   run: git clone https://github.com/dirkarnez/minimal-webpack-boilerplate.git
         
       - name: curl node-v18.12.1-win-x64.zip
         shell: cmd
@@ -35,8 +33,7 @@ jobs:
       - name: write dummy index.js
         shell: sh
         run: |
-          cd minimal-webpack-boilerplate && \
-          echo "export * from \"${{ env.npmlibraryName }}\";" > src/index.js
+          echo "export * from \"${{ env.npmlibraryName }}\";" > src/index.ts
       
       # - name: write dummy index.js, advanced DO NOT REMOVE
       #   shell: sh
@@ -51,21 +48,19 @@ jobs:
             set PATH=^
             ${{ github.workspace }}\node-v18.12.1-win-x64;^
             ${{ github.workspace }}\PortableGit-2.38.1-64-bit\bin;
-            cd minimal-webpack-boilerplate &&^
             npm install ${{ env.npmlibraryName }} &&^
             npx webpack --help=verbose &&^
-            npx webpack --mode=production ${{ env.appendToWebpackCli }} --output-library-type=var --output-library-name=${{ env.npmlibraryName }} --output-filename=${{ env.exportFileName }}.${{ env.version }}.var.min.js
-
+            npx cross-env NODE_ENV=production webpack ${{ env.appendToWebpackCli }} --output-library-type=var --output-library-name=${{ env.npmlibraryName }} --output-filename=${{ env.exportFileName }}.${{ env.version }}.var.min.js
+      
       - if: ${{ matrix.type == 'esm' }}
         shell: cmd
         run: |
             set PATH=^
             ${{ github.workspace }}\node-v18.12.1-win-x64;^
             ${{ github.workspace }}\PortableGit-2.38.1-64-bit\bin;
-            cd minimal-webpack-boilerplate &&^
             npm install ${{ env.npmlibraryName }} &&^
             npx webpack --help=verbose &&^
-            npx webpack --mode=production ${{ env.appendToWebpackCli }} --output-library-type=module --experiments-output-module --output-filename=${{ env.exportFileName }}.${{ env.version }}.esm.min.js
+            npx cross-env NODE_ENV=production webpack ${{ env.appendToWebpackCli }} --output-library-type=module --experiments-output-module --output-filename=${{ env.exportFileName }}.${{ env.version }}.esm.min.js
             
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
@@ -74,5 +69,5 @@ jobs:
           automatic_release_tag: ${{ env.npmlibraryName }}.${{ env.version }}.${{ matrix.type }}
           title: ${{ env.npmlibraryName }}.${{ env.version }}.${{ matrix.type }}.min.js
           files: |
-            minimal-webpack-boilerplate/dist/*.js
-            minimal-webpack-boilerplate/dist/*.wasm
+            dist/*.js
+            dist/*.wasm

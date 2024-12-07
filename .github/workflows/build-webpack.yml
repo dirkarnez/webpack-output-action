@@ -12,7 +12,7 @@ jobs:
       npmlibraryName:  print-pdf
       version: 0.2.6
       appendToWebpackCli: ''
-      exportFileName:  print-pdf
+      exportFileName:  printpdf
     steps:
       # - uses: actions/checkout@v4
 

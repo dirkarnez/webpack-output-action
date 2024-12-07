@@ -14,11 +14,13 @@ jobs:
       appendToWebpackCli: ''
       exportFileName:  print-pdf
     steps:
-      - uses: actions/checkout@v4
+      # - uses: actions/checkout@v4
+
       
-      # - name: git clone
-      #   shell: cmd
-      #   run: git clone https://github.com/dirkarnez/minimal-webpack-boilerplate.git
+      
+      - name: git clone
+        shell: cmd
+        run: git clone https://github.com/dirkarnez/minimal-webpack-boilerplate.git
         
       - name: curl node-v18.12.1-win-x64.zip
         shell: cmd
@@ -45,7 +47,6 @@ jobs:
             ${{ github.workspace }}\node-v18.12.1-win-x64;
             cd minimal-webpack-boilerplate &&^
             npm install ${{ env.npmlibraryName }} &&^
-            npm i path-browserify &&^
             npx webpack --help=verbose &&^
             npx webpack --mode=production ${{ env.appendToWebpackCli }} --output-library-type=var --output-library-name=${{ env.npmlibraryName }} --output-filename=${{ env.exportFileName }}.${{ env.version }}.var.min.js
 
@@ -56,10 +57,8 @@ jobs:
             ${{ github.workspace }}\node-v18.12.1-win-x64;
             cd minimal-webpack-boilerplate &&^
             npm install ${{ env.npmlibraryName }} &&^
-            npm i path-browserify &&^
             npx webpack --help=verbose &&^
             npx webpack --mode=production ${{ env.appendToWebpackCli }} --output-library-type=module --experiments-output-module --output-filename=${{ env.exportFileName }}.${{ env.version }}.esm.min.js
-
             
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:

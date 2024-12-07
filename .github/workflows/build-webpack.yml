@@ -13,6 +13,7 @@ jobs:
       version: 0.2.6
       appendToWebpackCli: ''
       exportFileName:  print-pdf
+      exportJSVariableName:  printPDF
     steps:
       - uses: actions/checkout@v4
 
@@ -50,7 +51,7 @@ jobs:
             ${{ github.workspace }}\PortableGit-2.38.1-64-bit\bin;
             npm install ${{ env.npmlibraryName }} &&^
             npx webpack --help=verbose &&^
-            npx cross-env NODE_ENV=production webpack ${{ env.appendToWebpackCli }} --output-library-type=var --output-library-name=${{ env.npmlibraryName }} --output-filename=${{ env.exportFileName }}.${{ env.version }}.var.min.js
+            npx cross-env NODE_ENV=production webpack ${{ env.appendToWebpackCli }} --output-library-type=var --output-library-name=${{ env.exportJSVariableName }} --output-filename=${{ env.exportFileName }}.${{ env.version }}.var.min.js
       
       - if: ${{ matrix.type == 'esm' }}
         shell: cmd

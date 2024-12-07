@@ -27,6 +27,10 @@ jobs:
         run: |
           curl https://nodejs.org/dist/v18.12.1/node-v18.12.1-win-x64.zip -L --output node-v18.12.1-win-x64.zip &&^
           7z.exe x node-v18.12.1-win-x64.zip
+
+      - name: curl PortableGit-2.38.1-64-bit.7z.exe
+        shell: cmd
+        run: curl https://github.com/git-for-windows/git/releases/download/v2.38.1.windows.1/PortableGit-2.38.1-64-bit.7z.exe -L --output PortableGit-2.38.1-64-bit.7z.exe && dir && 7z.exe x PortableGit-2.38.1-64-bit.7z.exe -o"PortableGit-2.38.1-64-bit"
         
       - name: write dummy index.js
         shell: sh
@@ -45,7 +49,8 @@ jobs:
         shell: cmd
         run: |
             set PATH=^
-            ${{ github.workspace }}\node-v18.12.1-win-x64;
+            ${{ github.workspace }}\node-v18.12.1-win-x64;^
+            ${{ github.workspace }}\PortableGit-2.38.1-64-bit;
             cd minimal-webpack-boilerplate &&^
             npm install ${{ env.npmlibraryName }} &&^
             npx webpack --help=verbose &&^
@@ -55,7 +60,8 @@ jobs:
         shell: cmd
         run: |
             set PATH=^
-            ${{ github.workspace }}\node-v18.12.1-win-x64;
+            ${{ github.workspace }}\node-v18.12.1-win-x64;^
+            ${{ github.workspace }}\PortableGit-2.38.1-64-bit;
             cd minimal-webpack-boilerplate &&^
             npm install ${{ env.npmlibraryName }} &&^
             npx webpack --help=verbose &&^

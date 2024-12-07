@@ -9,11 +9,11 @@ jobs:
       matrix:
         type: [var, esm]
     env:
-      npmlibraryName:  print-pdf
-      version: 0.2.6
+      npmlibraryName:  dom-to-pdf
+      version: 0.3.2
       appendToWebpackCli: ''
-      exportFileName:  print-pdf
-      exportJSVariableName:  printPDF
+      exportFileName:  dom-to-pdf
+      exportJSVariableName:  domToPDF
     steps:
       - uses: actions/checkout@v4
 

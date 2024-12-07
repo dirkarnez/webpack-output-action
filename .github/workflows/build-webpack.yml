@@ -1,5 +1,5 @@
 name: webpack-umd-release-actions-workflow
-# on: push
+on: push
 
 jobs:
   build:
@@ -9,10 +9,10 @@ jobs:
       matrix:
         type: [var, esm]
     env:
-      npmlibraryName:  pdfkit-table
-      version: 0.1.99
+      npmlibraryName:  print-pdf
+      version: 0.2.6
       appendToWebpackCli: ''
-      exportFileName:  pdfkit-table
+      exportFileName:  print-pdf
     steps:
       - uses: actions/checkout@v4
       

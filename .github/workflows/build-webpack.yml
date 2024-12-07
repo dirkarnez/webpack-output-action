@@ -33,8 +33,8 @@ jobs:
       - name: write dummy index.js
         shell: sh
         run: |
-          echo "export * from \"${{ env.npmlibraryName }}\";" > src/index.ts
-      
+          echo "// @ts-ignore\nexport * from \"${{ env.npmlibraryName }}\";" > src/index.ts
+          
       # - name: write dummy index.js, advanced DO NOT REMOVE
       #   shell: sh
       #   run: |

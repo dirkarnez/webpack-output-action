@@ -32,9 +32,9 @@ jobs:
         run: curl https://github.com/git-for-windows/git/releases/download/v2.38.1.windows.1/PortableGit-2.38.1-64-bit.7z.exe -L --output PortableGit-2.38.1-64-bit.7z.exe && dir && 7z.exe x PortableGit-2.38.1-64-bit.7z.exe -o"PortableGit-2.38.1-64-bit"
         
       - name: write dummy index.js
-        shell: sh
+        shell: bash
         run: |
-          echo "// @ts-ignore\nexport * from \"${{ env.npmlibraryName }}\";" > src/index.ts
+          echo -e "// @ts-ignore\nexport * from \"${{ env.npmlibraryName }}\";" > src/index.ts
           
       # - name: write dummy index.js, advanced DO NOT REMOVE
       #   shell: sh

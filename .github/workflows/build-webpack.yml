@@ -9,11 +9,11 @@ jobs:
       matrix:
         type: [var, esm]
     env:
-      npmlibraryName:  dom-to-pdf
-      version: 0.3.2
+      npmlibraryName: fftw-js
+      version: 0.1.4
       appendToWebpackCli: ''
-      exportFileName:  dom-to-pdf
-      exportJSVariableName:  domToPDF
+      exportFileName:  fftw-js
+      exportJSVariableName:  fftwJs
     steps:
       - uses: actions/checkout@v4
 

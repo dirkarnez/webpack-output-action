@@ -1,0 +1,14 @@
+{
+    "terminal.integrated.profiles.windows": {
+        "PowerShell": null,
+        "Windows PowerShell": null,
+        "Command Prompt": {
+            "path": ["${env:windir}\\System32\\cmd.exe"],
+            "env": { 
+                "PATH": "${env:USERPROFILE}\\Downloads\\node-v18.18.0-win-x64\\node-v18.18.0-win-x64;${env:USERPROFILE}\\Downloads\\PortableGit\\bin;D:\\Softwares\\PortableGit\\bin"
+            }
+        }
+    },
+    "terminal.integrated.defaultProfile.windows": "Command Prompt",
+    "C_Cpp.autoAddFileAssociations": false
+}

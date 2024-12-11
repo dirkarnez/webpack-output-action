@@ -2,7 +2,6 @@
   "name": "minimal-webpack-boilerplate",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack serve --static dist",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -40,8 +39,6 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
-    "pdfkit": "^0.15.1",
-    "pdfkit-table": "^0.1.99",
-    "print-pdf": "^0.2.6"
+    "exceljs": "^4.4.0"
   }
 }

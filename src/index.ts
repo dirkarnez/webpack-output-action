@@ -5,5 +5,7 @@
 // // import PDFDocument from "pdfkit/js/";
 // // export default PDFDocument;
 
-// @ts-ignore
-export * from "print-pdf";
+
+
+// ts-ignore
+export { default } from 'exceljs';

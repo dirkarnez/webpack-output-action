@@ -9,11 +9,11 @@ jobs:
       matrix:
         type: [var, esm]
     env:
-      npmlibraryName: exceljs
-      version: 1.8.0
+      npmlibraryName: hyperformula
+      version: 2.7.1
       appendToWebpackCli: ''
-      exportFileName:  exceljs
-      exportJSVariableName:  excelJS
+      exportFileName:  hyperformula
+      exportJSVariableName:  hyperFormula
     steps:
       - uses: actions/checkout@v4
 

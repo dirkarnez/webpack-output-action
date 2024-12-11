@@ -9,11 +9,11 @@ jobs:
       matrix:
         type: [var, esm]
     env:
-      npmlibraryName: fftw-js
-      version: 0.1.4
+      npmlibraryName: exceljs
+      version: 1.8.0
       appendToWebpackCli: ''
-      exportFileName:  fftw-js
-      exportJSVariableName:  fftwJs
+      exportFileName:  exceljs
+      exportJSVariableName:  excelJS
     steps:
       - uses: actions/checkout@v4
 

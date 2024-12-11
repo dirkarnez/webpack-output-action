@@ -9,11 +9,11 @@ jobs:
       matrix:
         type: [var, esm]
     env:
-      npmlibraryName: hyperformula
-      version: 2.7.1
+      npmlibraryName: fftw-js
+      version: 0.1.4
       appendToWebpackCli: ''
-      exportFileName:  hyperformula
-      exportJSVariableName:  hyperFormula
+      exportFileName:  fftw-js
+      exportJSVariableName:  fftwJS
     steps:
       - uses: actions/checkout@v4
 

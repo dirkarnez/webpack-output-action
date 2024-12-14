@@ -9,11 +9,11 @@ jobs:
       matrix:
         type: [var, esm]
     env:
-      npmlibraryName: fftw-js
-      version: 0.1.4
+      npmlibraryName: chevrotain
+      version: 11.0.3
       appendToWebpackCli: ''
-      exportFileName:  fftw-js
-      exportJSVariableName:  fftwJS
+      exportFileName:  chevrotain
+      exportJSVariableName:  chevrotain
     steps:
       - uses: actions/checkout@v4
 

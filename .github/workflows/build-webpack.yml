@@ -9,11 +9,11 @@ jobs:
       matrix:
         type: [var, esm]
     env:
-      npmlibraryName: chevrotain
-      version: 11.0.3
+      npmlibraryName: distributions
+      version: 2.2.0
       appendToWebpackCli: ''
-      exportFileName:  chevrotain
-      exportJSVariableName:  chevrotain
+      exportFileName:  distributions
+      exportJSVariableName:  distributions
     steps:
       - uses: actions/checkout@v4
 

@@ -9,11 +9,11 @@ jobs:
       matrix:
         type: [var, esm]
     env:
-      npmlibraryName: tiny-emitter
-      version: 2.1.0
+      npmlibraryName: jstat
+      version: 1.9.6
       appendToWebpackCli: ''
-      exportFileName:  tiny-emitter
-      exportJSVariableName:  tinyEmitter
+      exportFileName:  jstat
+      exportJSVariableName:  jStat
     steps:
       - uses: actions/checkout@v4
 

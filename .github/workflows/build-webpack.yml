@@ -9,11 +9,11 @@ jobs:
       matrix:
         type: [var, esm]
     env:
-      npmlibraryName: "@svgdotjs/svg.draw.js"
-      version: 3.0.1
+      npmlibraryName: "@svgdotjs/svg.js"
+      version: 3.2.4
       appendToWebpackCli: ''
-      exportFileName: svg.draw.js
-      exportJSVariableName:  svgDrawJS
+      exportFileName: svg.js
+      exportJSVariableName:  svgJS
     steps:
       - uses: actions/checkout@v4
 

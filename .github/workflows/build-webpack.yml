@@ -9,11 +9,11 @@ jobs:
       matrix:
         type: [var, esm]
     env:
-      npmlibraryName: "@svgdotjs/svg.js"
-      version: 3.2.4
+      npmlibraryName: "leader-line"
+      version: 1.0.7
       appendToWebpackCli: ''
-      exportFileName: svg.js
-      exportJSVariableName:  svgJS
+      exportFileName: leader-line
+      exportJSVariableName: leaderLine
     steps:
       - uses: actions/checkout@v4
 

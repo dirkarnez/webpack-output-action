@@ -9,11 +9,11 @@ jobs:
       matrix:
         type: [var, esm]
     env:
-      npmlibraryName: "leader-line"
-      version: 1.0.7
+      npmlibraryName: "ts-lsp-client"
+      version: 1.0.3
       appendToWebpackCli: ''
-      exportFileName: leader-line
-      exportJSVariableName: leaderLine
+      exportFileName: ts-lsp-client
+      exportJSVariableName: tsLspClient
     steps:
       - uses: actions/checkout@v4
 

@@ -35,7 +35,7 @@ jobs:
         name: write dummy index.ts
         shell: bash
         run: |
-          echo -e "// @ts-ignore\nexport * from \"${{ env.npmlibraryName }}\";" > src/index.ts
+          echo -e "// @ts-ignore\nexport * from \"${{ env.npmlibraryName }}\";\n// @ts-ignore\nexport { default } from \"${{ env.npmlibraryName }}\";" > src/index.ts
 
   # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export
   # export * from "module-name";
@@ -44,7 +44,7 @@ jobs:
         name: write dummy index.ts
         shell: bash
         run: |
-          echo -e "// @ts-ignore\nexport * from \"${{ env.npmlibraryName }}\";" > src/index.ts
+          echo -e "// @ts-ignore\nexport * from \"${{ env.npmlibraryName }}\";\n// @ts-ignore\nexport { default } from \"${{ env.npmlibraryName }}\";" > src/index.ts
           
       # - name: write dummy index.js, advanced DO NOT REMOVE
       #   shell: sh

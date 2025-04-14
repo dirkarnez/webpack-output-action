@@ -9,11 +9,11 @@ jobs:
       matrix:
         type: [var, esm]
     env:
-      npmlibraryName: "autoprefixer"
-      version: 10.4.21
+      npmlibraryName: "postcss"
+      version: 8.5.3
       appendToWebpackCli: ''
-      exportFileName: autoprefixer
-      exportJSVariableName: autoprefixer
+      exportFileName: postcss
+      exportJSVariableName: postcss
     steps:
       - uses: actions/checkout@v4
 

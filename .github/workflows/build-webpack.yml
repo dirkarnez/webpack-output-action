@@ -9,11 +9,11 @@ jobs:
       matrix:
         type: [var, esm]
     env:
-      npmlibraryName: "postcss"
-      version: 8.5.3
+      npmlibraryName: "elkjs"
+      version: 0.10.0
       appendToWebpackCli: ''
-      exportFileName: postcss
-      exportJSVariableName: postcss
+      exportFileName: elkjs
+      exportJSVariableName: elkjs
     steps:
       - uses: actions/checkout@v4
 
@@ -82,3 +82,4 @@ jobs:
           files: |
             dist/*.js
             dist/*.wasm
+

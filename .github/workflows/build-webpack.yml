@@ -9,11 +9,11 @@ jobs:
       matrix:
         type: [var, esm]
     env:
-      npmlibraryName: "elkjs"
-      version: 0.10.0
+      npmlibraryName: "d3-hwschematic"
+      version: 0.1.6
       appendToWebpackCli: ''
-      exportFileName: elkjs
-      exportJSVariableName: elkjs
+      exportFileName: d3-hwschematic.js
+      exportJSVariableName: d3HWSchematic
     steps:
       - uses: actions/checkout@v4
 
@@ -82,4 +82,5 @@ jobs:
           files: |
             dist/*.js
             dist/*.wasm
+
 

@@ -12,11 +12,11 @@ jobs:
       matrix:
         type: [var, esm]
     env:
-      npmlibraryName: "@hpcc-js/wasm-graphviz"
-      version: 1.12.0
+      npmlibraryName: "fastest-levenshtein"
+      version: 1.0.16
       appendToWebpackCli: ''
-      exportFileName: hpcc-js-wasm-graphviz.js
-      exportJSVariableName: hpccjsWASMGraphviz
+      exportFileName: fastest-levenshtein.js
+      exportJSVariableName: fastestLevenshtein
     steps:
       - uses: actions/checkout@v4
 
@@ -85,6 +85,7 @@ jobs:
           files: |
             dist/*.js
             dist/*.wasm
+
 
 
 

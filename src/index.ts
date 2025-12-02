@@ -8,4 +8,5 @@
 
 
 // ts-ignore
-export { default } from 'exceljs';
+// export { default } from 'fastest-levenshtein';
+export * from 'fastest-levenshtein';

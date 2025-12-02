@@ -10,7 +10,7 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        type: [var, esm, assign]
+        type: [var, esm, assign]   # https://webpack.js.org/configuration/output/#outputlibrarytype
     env:
       npmlibraryName: "fastest-levenshtein"
       version: 1.0.16
@@ -95,6 +95,7 @@ jobs:
           files: |
             dist/*.js
             dist/*.wasm
+
 
 
 

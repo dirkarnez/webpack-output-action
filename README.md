@@ -24,6 +24,7 @@ webpack-output-action
 - [x] export esm
 - [ ] esm to umd support?
   - [Unable to import webpack-bundled UMD library as an ES6 import · Issue #9232 · webpack/webpack](https://github.com/webpack/webpack/issues/9232)
+  - [dcodeIO/esm2umd: Transforms ESM to UMD, i.e. to use ESM by default with UMD as a legacy fallback.](https://github.com/dcodeIO/esm2umd)
 
 
     npx cross-env NODE_ENV=production ${{ env.appendToWebpackCli }} --output-library-type=var --output-library-name=${{ env.npmlibraryName }} --output-filename=${{ env.exportFileName }}.${{ env.version }}.var.min.js
